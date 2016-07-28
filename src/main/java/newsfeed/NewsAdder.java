@@ -8,6 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,7 +47,7 @@ public class NewsAdder {
             News news = new News();
             news.setTitle(article.getString("title"));
             news.setContent(URL + article.getString("url"));
-            news.setDate(article.getString("pub_date"));
+            news.setDate(new Date(Long.valueOf(article.getString("published_at"))));
             newsfeed.add(news);
         }
 
