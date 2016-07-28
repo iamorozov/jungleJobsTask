@@ -1,6 +1,7 @@
 package model;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 /**
  * A POJO class, representing one piece of news
@@ -20,9 +21,10 @@ public class News {
     private String content;
 
     @Column(name = "date")
-    private String date;
+    private Date date;
 
-    public News(){}
+    public News() {
+    }
 
     public long getId() {
         return id;
@@ -36,7 +38,7 @@ public class News {
         return content;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
@@ -52,7 +54,7 @@ public class News {
         this.content = content;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 }
