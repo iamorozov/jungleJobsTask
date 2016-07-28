@@ -24,7 +24,7 @@ public class NewsController {
 
         NewsDao dao = context.getBean(NewsDao.class);
 
-        List<News> newsfeed = dao.listNews();
+        List<News> newsfeed = dao.listNews(fromDate, toDate);
 
         context.close();
 
