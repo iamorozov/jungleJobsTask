@@ -26,14 +26,14 @@ public class NewsDaoImpl implements NewsDao {
 
     @Override
     @SuppressWarnings("unchecked")
-    public List<News> listNews() {
+    public List<News> listNews(String fromDate, String toDate) {
 
         Session session = this.sessionFactory.openSession();
-        List<News> newsfeed = session.createQuery("from News").list();
+        List<News> newsfeed = session.createQuery(
+                        "from News news where news.date >= "
+                        + "\'" + fromDate + "\'" + " and news.date <= "
+                        + "\'" + toDate + "\'").list();
         session.close();
         return newsfeed;
-
-//        Session session = this.sessionFactory.getCurrentSession();
-//        return session.createQuery("from news").list();
     }
 }
