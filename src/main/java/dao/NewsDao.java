@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface NewsDao {
     public void addNews(News news);
-    public List<News> listNews();
+
+    public List<News> listNews(String fromDate, String toDate);
 }
